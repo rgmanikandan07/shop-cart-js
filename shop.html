@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+    <table border="1">
+        <tr>
+            <th>Product price</th>
+            <th>Unit price</th>
+            <th>Qty</th>
+            <th>Action</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <td>Headphone</td>
+            <td id="unitPrice">1500</td>
+            <td><input type="text" id="qty" value="2"></td>
+            <td><button id="trigger">Update Data</button></td>
+            <td id="price"></td>
+        </tr>
+        <tr>
+            <td>Charger</td>
+            <td>350</td>
+            <td><input type="text"></td>
+            <td><button>Update Data</button></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Mobile</td>
+            <td>45,000</td>
+            <td><input type="text"></td>
+            <td><button>Update Data</button></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td>Labtop</td>
+            <td>60,000</td>
+            <td><input type="text"></td>
+            <td><button>Update Data</button></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <script>
+        function calculatePrice() {
+            var unitPriceElement = document.getElementById("unitPrice"),
+                qtyElement = document.getElementById('qty');
+                priceElement = document.getElementById('price');
+
+
+            unitPrice = unitPriceElement.innerText;
+            qty = qtyElement.value;
+
+
+            price = unitPrice * qty;
+            priceElement.innerText = price;
+        }
+
+        // var x = calculatePrice(); //function call
+        // console.log(x);  
+        // var y = calculatePrice; //no function
+        // console.log(y);
+
+        var triggerElement = document.getElementById("trigger");
+        triggerElement.addEventListener('click',calculatePrice);  
+    </script>
+</body>
+
+</html>
