@@ -20,46 +20,53 @@
         </tr>
         <tr>
             <td>Headphone</td>
-            <td id="unitPrice">1500</td>
-            <td><input type="text" id="qty" value="2"></td>
-            <td><button id="trigger">Update Data</button></td>
+            <td class="unitPrice">1500</td>
+            <td><input type="text" class="qty" value="2"></td>
+            <td><button class="trigger">Update Data</button></td>
             <td id="price"></td>
         </tr>
         <tr>
             <td>Charger</td>
-            <td>350</td>
-            <td><input type="text"></td>
-            <td><button>Update Data</button></td>
+            <td class="unitPrice">350</td>
+            <td><input type="text" class="qty" value="2"></td>
+            <td><button class="trigger">Update Data</button></td>
             <td></td>
         </tr>
         <tr>
             <td>Mobile</td>
-            <td>45,000</td>
-            <td><input type="text"></td>
-            <td><button>Update Data</button></td>
+            <td class="unitPrice">45,000</td>
+            <td><input type="text" class="qty" value="2"></td>
+            <td><button class="trigger">Update Data</button></td>
             <td></td>
         </tr>
         <tr>
             <td>Labtop</td>
-            <td>60,000</td>
-            <td><input type="text"></td>
-            <td><button>Update Data</button></td>
+            <td class="unitPrice">60,000</td>
+            <td><input type="text" class="qty" value="2"></td>
+            <td><button class="trigger">Update Data</button></td>
             <td></td>
         </tr>
     </table>
 
     <script>
         function calculatePrice() {
-            var unitPriceElement = document.getElementById("unitPrice"),
-                qtyElement = document.getElementById('qty');
-                priceElement = document.getElementById('price');
+            var rowElement = this.parentNode.parentNode,
+            unitPriceElements = rowElement.getElementsByClassName('unitPrice'),
+            unitPriceElement = unitPriceElements[0];
+            qtyElement = rowElement.getElementsByClassName('qty'),
+            qtyElement = qtyElements[0];
+            priceElement = rowElement.getElementsByClassName('price'),
+            priceElement = rowElements[0];
 
-
+            
             unitPrice = unitPriceElement.innerText;
+            unitPrice = parseInt(unitPrice);
+  
             qty = qtyElement.value;
-
+            qty = parseInt('qty');  
 
             price = unitPrice * qty;
+
             priceElement.innerText = price;
         }
 
@@ -67,9 +74,16 @@
         // console.log(x);  
         // var y = calculatePrice; //no function
         // console.log(y);
-
-        var triggerElement = document.getElementById("trigger");
-        triggerElement.addEventListener('click',calculatePrice);  
+        var triggerElement = document.getElementById('trigger');
+        var triggerElements  = document.getElementsByClassName("trigger");
+     
+         for(i=0; i<triggerElements.length; i++){
+            console.log(triggerElements);
+         }
+        triggerElements[0].addEventListener('click',calculatePrice);
+        // triggerElements[1].addEventListener('click',calculatePrice);
+        // triggerElements[2].addEventListener('click',calculatePrice);
+        // triggerElements[3].addEventListener('click',calculatePrice);  
     </script>
 </body>
 
